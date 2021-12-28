@@ -1,63 +1,18 @@
-<div id="login">
-  <div class="wrapper">
-    <div class="login">
-      <form action="yzm/index.html" method="post" class="container offset1 loginform">
-        <div id="owl-login">
-          <div class="hand">
-          </div>
-          <div class="hand hand-r">
-          </div>
-          <div class="arms">
-            <div class="arm">
-            </div>
-            <div class="arm arm-r">
-            </div>
-          </div>
-        </div>
-        <div class="pad">
-          <input type="hidden" name="_csrf" value="a123456789=">
-          <div class="control-group">
-            <div class="controls">
-              <label for="email" class="control-label fa fa-envelope">
-              </label>
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="controls">
-              <label for="password" class="control-label fa fa-asterisk">
-              </label>
-              <input id="password" type="password" name="password" placeholder="请输入验证..."
-              tabindex="2" class="form-control input-medium">
-            </div>
-          </div>
-        </div>
-        <div class="form-actions">
-          <a id="yzmts" href="#" tabindex="5" class="btn pull-left btn-link text-muted">
-            请输入验证码...
-          </a>
-          <a href="" tabindex="6" class="btn btn-link text-muted">
-            请输入
-          </a>
-          <button id="bt" type="button" tabindex="4" onclick="javascript:void(0)"
-          class="btn btn-primary">
-            Login
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <script src="js/jquery.min.js" tppabs="yzm/js/jquery.min.js">
-  </script>
+<head>
+  <title>
+     Login
+  </title>
+</head>
+<body>
+  <h1>Login</h1>
+  <input type="password" id="pwd" />
+  <input type="button" value="登录" onclick="login()" />
   <script>
-    $(function() {
-      $('#login #password').focus(function() {
-        $('#owl-login').addClass('password');
-      }).blur(function() {
-        $('#owl-login').removeClass('password');
-      });
-      $('#bt').click(function() {
-        $('#yzmts').html("验证码错误,请重新输入...");
-      })
-    });
+    function login() {
+      var pwd = document.getElementById("pwd").value;
+      if (pwd == "123456") {
+        location.href = "magazine.brothers.gq";
+      }
+    }
   </script>
-</div>
+</body>
