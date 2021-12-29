@@ -3,25 +3,7 @@
      Login
   </title>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-</head>
-<body>
-  <h1>Login</h1>
-IP <div id="userAgentIp"></div>
-<script type="text/javascript">getIpInfo()</script>
-  <input type="password" id="pwd" />
-  <input type="button" value="OK" onclick="login()" />
-
-
-
-
-  <script>
-    function login() {
-      var pwd = document.getElementById("pwd").value;
-      if (pwd == "123456") {
-        location.href = "http://magazine.brothers.gq";
-      }else{alert('Wrong Password');}
-    }
-
+<script>
 // 获取ip
 function getIpInfo() {
   var path = 'https://myip.ipip.net/';
@@ -54,6 +36,25 @@ function getIpInfo() {
   var uaInfo = navigator.userAgent;
   document.getElementById("userAgentDevice").innerHTML = uaInfo;
 }
+</script>
+</head>
+<body>
+  <h1>Login</h1>
+IP <div id="userAgentIp"></div>
+<script type="text/javascript">getIpInfo()</script>
+  <input type="password" id="pwd" />
+  <input type="button" value="OK" onclick="login()" />
+
+
+
+
+  <script>
+    function login() {
+      var pwd = document.getElementById("pwd").value;
+      if (pwd == "123456") {
+        location.href = "http://magazine.brothers.gq";
+      }else{alert('Wrong Password');}
+    }
 
   </script>
 </body>
