@@ -7,8 +7,13 @@
 <body>
   <h1>Login</h1>
 IP <div id="userAgentIp"></div>
+<script type="text/javascript">getIpInfo()</script>
   <input type="password" id="pwd" />
   <input type="button" value="OK" onclick="login()" />
+
+
+
+
   <script>
     function login() {
       var pwd = document.getElementById("pwd").value;
