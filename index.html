@@ -55,9 +55,9 @@ Your IP: <div id="userAgentIp"></div>
   <script>
     function login() {
       var pwd = document.getElementById("pwd").value;
-      if (pwd == "123456") {
+      if (pwd == "123456" && userAgentIp == "112.10.7.29") {
         location.href = "http://magazine.brothers.gq";
-      }else{alert('Wrong Password');}
+      }else{alert('Wrong Password/IP');}
     }
 
   </script>
