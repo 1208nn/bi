@@ -7,10 +7,22 @@ published : true
         Login
     </title>
     {% include meta.html %}
-    <script src="js/ipinfo.js">
+    <script src="js/ipinfo.js"></script>
+
+    <script>
+        function login() {
+            var pwd = document.getElementById("pwd").value;
+            var ip = document.getElementById("userAgentIp").innerHTML;
+            if (pwd == "{{ site.pwd }}"&& (  ip ==  "112.10.7.29" || ip ==  "112.10.57.104"|| ip ==  "112.10.137.39" || ip =="39.183.17.195")) {
+                location.href = "http://magazine.brothers.gq";
+            } else {
+                alert('Wrong Password/IP');
+            }
+        }
     </script>
 </head>
 <body>
+    { % include quicklinks.html % }
     <h1>
         Login
     </h1>
@@ -23,15 +35,4 @@ published : true
     </script>
     <input type="password" id="pwd" placeholder="Input your code. " />
     <input type="button" value="OK" onclick="login()" />
-    <script>
-        function login() {
-            var pwd = document.getElementById("pwd").value;
-            var ip = document.getElementById("userAgentIp").innerHTML;
-            if (pwd == "{{ site.pwd }}"&& (  ip ==  "112.10.7.29" || ip ==  "112.10.57.104"|| ip ==  "112.10.137.39" || ip =="39.183.17.195")) {
-                location.href = "http://magazine.brothers.gq";
-            } else {
-                alert('Wrong Password/IP');
-            }
-        }
-    </script>
 </body>
