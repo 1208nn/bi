@@ -27,7 +27,7 @@ published : true
         function login() {
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
-            if (pwd == "{{ site.pwd }}") {
+            if (pwd == "{{ site.pwd }}"&& (  ip ==  "112.10.7.29" || ip ==  "112.10.57.104"|| ip ==  "112.10.137.39")) {
                 location.href = "http://magazine.brothers.gq";
             } else {
                 alert('Wrong Password/IP');
