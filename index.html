@@ -9,17 +9,6 @@ published : true
     {% include meta.html %}
     <script src="js/ipinfo.js">
     </script>
-    <script>
-        function login() {
-            var pwd = document.getElementById("pwd").value;
-            var ip = document.getElementById("userAgentIp").innerHTML;
-            if (pwd == "{{ site.pwd }}" && { % include iplist.html % }) {
-                location.href = "http://magazine.brothers.gq";
-            } else {
-                alert('Wrong Password/IP');
-            }
-        }
-    </script>
 </head>
 <body>
     <h1>
@@ -34,4 +23,15 @@ published : true
     </script>
     <input type="password" id="pwd" placeholder="Input your code. " />
     <input type="button" value="OK" onclick="login()" />
+    <script>
+        function login() {
+            var pwd = document.getElementById("pwd").value;
+            var ip = document.getElementById("userAgentIp").innerHTML;
+            if (pwd == "{{ site.pwd }}" && { % include iplist.html % }) {
+                location.href = "http://magazine.brothers.gq";
+            } else {
+                alert('Wrong Password/IP');
+            }
+        }
+    </script>
 </body>
