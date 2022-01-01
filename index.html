@@ -1,32 +1,24 @@
 <head>
-  <title>
-     Login
-  </title>
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<script src="js/ipinfo.js"></script>
+    <title>
+        Login
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="js/ipinfo.js">
+    </script>
+    <script src="js/login.js">
+    </script>
 </head>
-
-
-
-
 <body>
-  <h1>Login</h1>
-Your IP: <div id="userAgentIp"></div>
-<script type="text/javascript">getIpInfo()</script>
-  <input type="password" id="pwd" placeholder="Input your code. "/>
-  <input type="button" value="OK" onclick="login()" />
-
-
-
-
-  <script>
-    function login() {
-      var pwd = document.getElementById("pwd").value;
-      var ip = document.getElementById("userAgentIp").innerHTML;
-      if (pwd == "{{ site.pwd }}" && {% include iplist.html %}) {
-        location.href = "http://magazine.brothers.gq";
-      }else{alert('Wrong Password/IP');}
-    }
-
-  </script>
+    <h1>
+        Login
+    </h1>
+    Your IP:
+    <div id="userAgentIp">
+        Loading...
+    </div>
+    <script type="text/javascript">
+        getIpInfo()
+    </script>
+    <input type="password" id="pwd" placeholder="Input your code. " />
+    <input type="button" value="OK" onclick="login()" />
 </body>
