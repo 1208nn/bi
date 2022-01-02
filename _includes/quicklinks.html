@@ -10,12 +10,21 @@ body{
     height: 64px;
     background-color: orange;
     z-index: 9999;
-    border-radius : 5px;
-    color : white;
-    box-shadow : 4px 4px 3px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 4px 4px 3px;
+    padding: 2px;
 }
 sitetitle{
     font-size : 40px;
 }
 </style>
-<div class="quicklinks"><sitetitle><a href="https://"insiders.brothers.gq/" >{{ site.title }}</a>|</sitetitle>{{ page.title }}</div>
+<div class="quicklinks">
+    <sitetitle>
+        <a href="https://"insiders.brothers.gq/" >
+            {{ site.title }}
+        </a>
+        |
+    </sitetitle>
+    {{ page.title }}
+</div>
