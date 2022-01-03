@@ -12,8 +12,8 @@ title : Login_bi
             var logintime = getTime();
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
-            if (pwd == "{{ site.pwd }}"&& {% include iplist.dat %} ) {
-                location.href = "http://insiders.brothers.gq/index.html?logt="+logintime+"&token={{ site.token }}";
+            if (pwd == "{{ site.pwd }}" && {% include iplist.dat %} ) {
+                location.href = ("http://insiders.brothers.gq/index.html?logt="+logintime.toString()+"&token={{ site.token }}");
             } else {
                 alert('Wrong Password/IP');
             }
