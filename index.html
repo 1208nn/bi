@@ -12,7 +12,6 @@ title : Login_bi
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
             if (pwd == "{{ site.pwd }}" && {% include iplist.dat %} ) {
-                var logintime = new Date().getTime();
                 setCookie("token",{{ site.token }},0.125);
                 location.href = ("https://insiders.brothers.gq/");
             } else {
