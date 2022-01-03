@@ -9,8 +9,7 @@ title : Login_bi
 
     <script>
         function login() {
-            var d = new Date();
-            var logintime = d.getTime();
+            var logintime = new Date().getTime();
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
             if (pwd == "{{ site.pwd }}" && {% include iplist.dat %} ) {
