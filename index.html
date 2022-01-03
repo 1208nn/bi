@@ -9,10 +9,11 @@ title : Login_bi
 
     <script>
         function login() {
+            car logintime = getTime();
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
             if (pwd == "{{ site.pwd }}"&& {% include iplist.dat %} ) {
-                location.href = "http://magazine.brothers.gq";
+                location.href = "http://insiders.brothers.gq/index.html?logt="+logintime+"&token={{ site.token }}";
             } else {
                 alert('Wrong Password/IP');
             }
