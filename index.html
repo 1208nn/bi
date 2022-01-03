@@ -9,7 +9,7 @@ title : Login_bi
 
     <script>
         function login() {
-            car logintime = getTime();
+            var logintime = getTime();
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
             if (pwd == "{{ site.pwd }}"&& {% include iplist.dat %} ) {
