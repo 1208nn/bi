@@ -6,14 +6,15 @@ title : Login_bi
 <head>
     {% include meta.html %}
     <script src="js/ipinfo.js"></script>
-
+    <script src="js/cookie.js"></script>
     <script>
         function login() {
-            var logintime = new Date().getTime();
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
             if (pwd == "{{ site.pwd }}" && {% include iplist.dat %} ) {
-                location.href = ("https://insiders.brothers.gq/index.html?logt="+logintime.toString()+"&token={{ site.token }}");
+                var logintime = new Date().getTime();
+                setCookie("token",{{ site.token }},0.125);
+                location.href = ("https://insiders.brothers.gq/");
             } else {
                 alert('Wrong Password/IP');
             }
