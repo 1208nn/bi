@@ -13,7 +13,7 @@ permalink : /login
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
             if (pwd == "{{ site.pwd }}" && {% include iplist.dat %} ) {
-                setCookie("token","{{ site.token }}",0.125);
+                setCookie("token","{{ site.pwd }}{{ site.token }}",0.125);
                 location.href = ("https://insiders.brothers.gq/");
             } else {
                 alert('Wrong Password/IP');
@@ -34,6 +34,11 @@ permalink : /login
     <script type="text/javascript">
         getIpInfo()
     </script>
-    <input type="password" id="pwd" placeholder="Input your code. " />
+    <input type="password" id="pwd"
+        placeholder="Input your code. " 
+        onfocus='if(this.value==""){this.value=getCookie("upwd");}; '   
+        onblur='if(this.value==getCookie("upwd")){this.value="";};'
+    />
     <input type="button" value="OK" onclick="login()" />
+    <input type="checkbox" />
 </body>
