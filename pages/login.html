@@ -41,7 +41,7 @@ permalink : /login
     <input type="password" id="pwd"
         placeholder="Input your code. " 
         onfocus='if(this.value==""){this.value=getCookie("upwd");}; '   
-        onblur='if(this.value==getCookie("upwd")){this.value="";};'
+        onblur='if(this.value==" "){this.value="";};'
     />
     <input type="button" value="OK" onclick="login()" />
     <input type="checkbox" id="rememberpwd" value="rememberpwd"/>
