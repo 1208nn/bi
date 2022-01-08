@@ -1,3 +1,9 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+    color: white;
+  }
+}
 body{
     font-size: 18px;
 }
