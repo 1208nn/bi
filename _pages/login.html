@@ -13,6 +13,10 @@ permalink : /login
             var pwd = document.getElementById("pwd").value;
             var ip = document.getElementById("userAgentIp").innerHTML;
             if (pwd == "{{ site.pwd }}" && {% include iplist.dat %} ) {
+                setCookie("upwd","",5);
+                if (document.getElementById("rememberpwd").checked){
+                    setCookie("upwd",pwd,3);
+                }
                 setCookie("token","{{ site.pwd }}{{ site.token }}",0.125);
                 location.href = ("https://insiders.brothers.gq/");
             } else {
@@ -40,5 +44,6 @@ permalink : /login
         onblur='if(this.value==getCookie("upwd")){this.value="";};'
     />
     <input type="button" value="OK" onclick="login()" />
-    <input type="checkbox" />
+    <input type="checkbox" id="rememberpwd" value="rememberpwd"/>
+    remember pwd
 </body>
