@@ -1,4 +1,10 @@
 ---
 layout : default
 ---
+<title>
+     {% if page.title %}
+          {{ page.title }}
+     {% endif %}
+     _{{ site.title}}
+</title>
 {{ content }}
