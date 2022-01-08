@@ -1,11 +1,14 @@
 function logverify() {
+    alert("a");
     var utoken = getCookie("token");
+    alert("a");
     var ip = document.getElementById("userAgentIp").innerHTML;
+    alert("a");
     if (utoken != "{{ site.pwd }}{{ site.token }}" || ! {% include iplist.dat %}){
-        setCookie("token","",5);
-        document.getElementById("ulogstate").innerHTML="<a href=\"https://insiders.brothers.gq/login/\">Login</a>";
+            alert("a");setCookie("token","",5);
+            alert("a");document.getElementById("ulogstate").innerHTML="<a href=\"https://insiders.brothers.gq/login/\">Login</a>";
     } else {
-        document.getElementById("ulogstate").innerHTML="Logged <a href=\"javascript:setCookie(\"token\",\"\",5);\">Logout</a><meta http-equiv=\"refresh\" content=\"0;url= / \">";
+            alert("a");document.getElementById("ulogstate").innerHTML="Logged <a href=\"javascript:setCookie(\"token\",\"\",5);\">Logout</a><meta http-equiv=\"refresh\" content=\"0;url= / \">";
     }
 }
 //location.href = ("https://insiders.brothers.gq/login/");
