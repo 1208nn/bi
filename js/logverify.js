@@ -1,3 +1,4 @@
 function logverify() {
-    ut= getCookie("token");
+    var utoken = getCookie("token");
+    ip =;
 }
