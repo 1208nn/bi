@@ -1,7 +1,7 @@
 /*请求参数
 var paramObj = {
 	httpUrl : '',
-	type : 'post',
+	type : 'get',
 	data : {
 		name : 'sss',
 		sex : '男'
@@ -31,7 +31,7 @@ function httpRequest(paramObj,fun,errFun) {
 	}
 	/*判断是否支持请求*/
 	if(xmlhttp == null) {
-		alert('你的浏览器不支持XMLHttp');
+		alert('Your browser does not support XMLHttp. ');
 		return;
 	}
 	/*请求方式，并且转换为大写*/
