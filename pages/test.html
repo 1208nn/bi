@@ -12,6 +12,25 @@ layout : pages
 </script>
 
 <script src="./js/httpRequest.js"></script>
-<script src="./js/getpwdinfo.js"></script>
+<script>alert("q");
+var paramObj = {
+	httpUrl : 'https://insiders.brothers.gq/safedata.html/',
+	type : 'get'
+}alert("q");
+httpRequest(paramObj,function(respondDada) {
+    alert("q");var pwdl = "pwd=\"";
+    var tokenl = "token=\"";
+    var ca = respondDada.split('\"');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(pwdl)==0) {pwd = c.substring(pwdl.length,c.length); }
+    }
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(tokenl)==0) {token = c.substring(tokenl.length,c.length); }
+    }alert("q");
+},function() {
+	alert('Network Error. ')
+});</script>
 <script>document.write(token);
 </script>
