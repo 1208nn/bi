@@ -1,76 +1,24 @@
-/*请求参数
-var paramObj = {
-	httpUrl : '',
-	type : 'get',
-	data : {
-		name : 'sss',
-		sex : '男'
-	}
-}
-请求调用
-httpRequest(paramObj,function(respondDada) {
-    //这里编写成功的回调函数
-    console.log(respondDada)
-},function() {
-	alert('网络错误')
-});
-
-
-*/
-
-
-function httpRequest(paramObj,fun,errFun) {
-	var xmlhttp = null;
-	/*创建XMLHttpRequest对象，
-	 *老版本的 Internet Explorer（IE5 和 IE6）使用 ActiveX 对象：new ActiveXObject("Microsoft.XMLHTTP")
-	 * */
-	if(window.XMLHttpRequest) {
-		xmlhttp = new XMLHttpRequest();
-	}else if(window.ActiveXObject) {
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	/*判断是否支持请求*/
-	if(xmlhttp == null) {
-		alert('Your browser does not support XMLHttp. ');
-		return;
-	}
-	/*请求方式，并且转换为大写*/
-	var httpType = (paramObj.type || 'GET').toUpperCase();
-	/*数据类型*/
-	var dataType = paramObj.dataType || 'json';
-	/*请求接口*/
-	var httpUrl = paramObj.httpUrl || '';
-	/*是否异步请求*/
-	var async = paramObj.async || true;
-	/*请求参数--post请求参数格式为：foo=bar&lorem=ipsum*/
-	var paramData = paramObj.data || [];
-	var requestData = '';
-	for(var name in paramData) {
-		requestData += name + '='+ paramData[name] + '&';
-	}
-	requestData = requestData == '' ? '' : requestData.substring(0,requestData.length - 1);
-	console.log(requestData)
-	
-	/*请求接收*/
-	xmlhttp.onreadystatechange = function() {
-    if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      /*成功回调函数*/
-      fun(xmlhttp.responseText);
-    }else{
-    	/*失败回调函数*/
-    	errFun;
+//直接通过XMLHttpRequest对象获取远程网页源代码
+function getRemoteData(url,func) {
+    //地址为空时
+    if (url == "") () {
+        console.log("Empty URL Error. ");
+        return;
     }
-	}			
-	
-	/*接口连接，先判断连接类型是post还是get*/
-	if(httpType == 'GET') {
-		xmlhttp.open("GET",httpUrl,async);
-	xmlhttp.send(null);
-	}else if(httpType == 'POST'){
-		xmlhttp.open("POST",httpUrl,async);
-		//发送合适的请求头信息
-		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
-		xmlhttp.send(requestData); 
-	}
+    //根据window.XMLHttpRequest对象是否存在使用不同的创建方式
+    if (window.XMLHttpRequest) {
+       xmlHttp = new XMLHttpRequest();                  //FireFox、Opera等浏览器支持的创建方式
+    } else {
+       xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");//IE浏览器支持的创建方式
+    }
+    xmlHttp.onreadystatechange = func;                   //设置回调函数
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
 }
-
+/*
+function noteData() {
+    if (xmlHttp.readyState == 4) {
+        document.getElementById("source").value = xmlHttp.responseText;
+    }
+}
+*/
