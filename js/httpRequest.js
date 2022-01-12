@@ -18,6 +18,7 @@
 
 
  function httpRequest(paramObj,fun,errFun) {
+alert("q");
  	var xmlhttp = null;
  	/*创建XMLHttpRequest对象，
  	 *老版本的 Internet Explorer（IE5 和 IE6）使用 ActiveX 对象：new ActiveXObject("Microsoft.XMLHTTP")
@@ -69,5 +70,5 @@
  		//发送合适的请求头信息
  		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
  		xmlhttp.send(requestData);       
- 	}
+ 	}alert("q");
  }
