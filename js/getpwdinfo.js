@@ -4,7 +4,7 @@ var paramObj = {
 	type : 'get'
 };
 httpRequest(paramObj,function(respondDada) {
-    alert("q");var pwdl = "pwd=\"";
+    var pwdl = "pwd=\"";
     var tokenl = "token=\"";
     var ca = respondDada.split('\"');
     for(var i=0; i<ca.length; i++) {
