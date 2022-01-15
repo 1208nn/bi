@@ -1,4 +1,4 @@
-
+alert(1);
 var paramObj = {
 	httpUrl : 'https://insiders.brothers.gq/safedata.html/',
 	type : 'get'
@@ -18,3 +18,5 @@ httpRequest(paramObj,function(respondDada) {
 },function() {
 	alert('Network Error. ')
 });
+alert(1);
+alert(pwd);
