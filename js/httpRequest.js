@@ -55,7 +55,7 @@
        fun(xmlhttp.responseText);
      }else{
      	/*失败回调函数*/
-     	errFun;
+     	errFun();
      }
  	}			
 
