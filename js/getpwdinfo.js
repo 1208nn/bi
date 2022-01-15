@@ -4,7 +4,9 @@ var paramObj = {
 	type : 'get'
 };
 httpRequest(paramObj,function(respondDada) {
-    alert(1);var pwdl = "pwd=\"";
+    alert(1);
+alert(respondDada);
+/*var pwdl = "pwd=\"";
     var tokenl = "token=\"";
     var ca = respondDada.split('\"');
     for(var i=0; i<ca.length; i++) {
@@ -14,7 +16,7 @@ httpRequest(paramObj,function(respondDada) {
     for(var i=0; i<ca.length; i++) {
         var c = ca[i].trim();
         if (c.indexOf(tokenl)==0) {token = c.substring(tokenl.length,c.length); }
-    }
+    }*/
 },function() {
 	alert('Network Error. ');
 });
