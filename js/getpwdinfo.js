@@ -19,4 +19,3 @@ httpRequest(paramObj,function(respondDada) {
 	alert('Network Error. ')
 });
 alert(1);
-alert(pwd);
