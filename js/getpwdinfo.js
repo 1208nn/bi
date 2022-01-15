@@ -1,4 +1,4 @@
-var pwd;var token;
+var pwd,token;
 var paramObj = {
 	httpUrl : 'https://insiders.brothers.gq/safedata.html/',
 	type : 'get'
