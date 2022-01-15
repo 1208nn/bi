@@ -18,7 +18,6 @@
 
 
  function httpRequest(paramObj,fun,errFun) {
-alert("q");
  	var xmlhttp = null;
  	/*创建XMLHttpRequest对象，
  	 *老版本的 Internet Explorer（IE5 和 IE6）使用 ActiveX 对象：new ActiveXObject("Microsoft.XMLHTTP")
