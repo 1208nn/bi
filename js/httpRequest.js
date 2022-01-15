@@ -48,8 +48,7 @@ alert("q");
  		requestData += name + '='+ paramData[name] + '&';
  	}
  	requestData = requestData == '' ? '' : requestData.substring(0,requestData.length - 1);
- 	console.log(requestData)
-
+ 	
  	/*请求接收*/
  	xmlhttp.onreadystatechange = function() {
      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -70,5 +69,5 @@ alert("q");
  		//发送合适的请求头信息
  		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
  		xmlhttp.send(requestData);       
- 	}alert("q");
+ 	}
  }
