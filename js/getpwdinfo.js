@@ -16,6 +16,6 @@ httpRequest(paramObj,function(respondDada) {
         if (c.indexOf(tokenl)==0) {token = c.substring(tokenl.length,c.length); }
     }
 },function() {
-	alert('Network Error. ')
+	alert('Network Error. ');
 });
 alert(pwd);
