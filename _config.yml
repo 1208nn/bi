@@ -1,2 +1,13 @@
 token: fhcg5725ghqlnnx587gh
 pwd: 123456
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: posts
+
+exclude:
+  - README.md
