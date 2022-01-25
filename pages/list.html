@@ -5,32 +5,28 @@ layout : pages
 ---
 
 {% for post in paginator.posts %}
-<article class="post post-1">
-    <header class="entry-header">
-    <h1 class="entry-title">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </h1>
-    <div class="entry-meta">
-        <span class="post-category"><a href="{{ post.url }}">{{ post.categories }}</a></span>
-        <span class="post-category"><a href="{{ post.url }}">{{ post.tag }}</a></span>
-
-        <span class="post-date"><a href="{{ post.url }}"><time class="entry-date" datetime="{{ post.date }}">{{ post.date | date: "%B %d,%Y" }}</time></a></span>
-        <span class="comments-link"><a href="{{ post.url }}">HelloLux</a></span>
-    </div>
-    </header>
-</article>
+    <a href="{{ post.url }}">{{ post.title }}</a>
 {% endfor %}
 
-<div class="entry-meta">
-  {% if paginator.previous_page %}
-      <span class="post-category"><a href="{{ paginator.previous_page_path }}">Previous</a></span>
-  {% else %}
-      <!-- <span class="previous">Previous</span> -->
-  {% endif %}
-      <span class="post-category">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-      <span class="comments-link"><a href="{{ paginator.next_page_path }}">Next</a></span>
-  {% else %}
-      <!-- <span class="comments-link ">Next</span> -->
-  {% endif %}
-  </div>
+
+
+{% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"上一页</a>
+{% endif %}
+
+{% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <span class="active">{{ page }}</span>
+    {% elsif page == 1 %}
+      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+{% endfor %}
+
+{% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">下一页</a>
+{% endif %}
+
+{% if paginator.total_pages > 1 %}qw
+{% endif %}
