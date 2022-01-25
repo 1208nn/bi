@@ -1,6 +1,12 @@
 token: fhcg5725ghqlnnx587gh
 pwd: 123456
 
+
+# Pagination
+paginate: 6    #在生成的站点中每页展示博客数目的最大值
+paginate_path: '/page-:num/'    #定分页页面的目标路径
+
+
 defaults:
   -
     scope:
@@ -11,3 +17,6 @@ defaults:
 
 exclude:
   - README.md
+
+plugins:
+  - jekyll-paginate
