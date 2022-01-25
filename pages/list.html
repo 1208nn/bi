@@ -4,29 +4,75 @@ permalink : /list
 layout : pages
 ---
 
+<!-- 遍历分页后的文章 -->
 {% for post in paginator.posts %}
-    <a href="{{ post.url }}">{{ post.title }}</a>
+  <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  <p class="author">
+    <span class="date">{{ post.date }}</span>
+  </p>
+  <div class="content">
+    {{ post.content }}
+  </div>
 {% endfor %}
 
+<!-- 分页链接 -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="/page{{ paginator.previous_page }}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="/page{{ paginator.next_page }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
 
-
-{% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"上一页</a>
-{% endif %}
-
-{% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <span class="active">{{ page }}</span>
-    {% elsif page == 1 %}
-      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+<div id="post-pagination" class="pagination">
+    {% if paginator.previous_page %}
+      <p class="previous">
+        {% if paginator.previous_page == 1 %}
+          <a href="/">Previous</a>
+        {% else %}
+          <a href="{{ paginator.previous_page_path }}">Previous</a>
+        {% endif %}
+      </p>
     {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      <p class="previous disabled">
+        <span>Previous</span>
+      </p>
     {% endif %}
-{% endfor %}
-
-{% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">下一页</a>
-{% endif %}
-
-{% if paginator.total_pages > 1 %}qw
-{% endif %}
+  
+    <ul class="pages">
+      <li class="page">
+        {% if paginator.page == 1 %}
+          <span class="current-page">1</span>
+        {% else %}
+          <a href="/">1</a>
+        {% endif %}
+      </li>
+  
+      {% for count in (2..paginator.total_pages) %}
+        <li class="page">
+          {% if count == paginator.page %}
+            <span class="current-page">{{ count }}</span>
+          {% else %}
+            <a href="/page{{ count }}">{{ count }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  
+    {% if paginator.next_page %}
+      <p class="next">
+        <a href="{{ paginator.next_page_path }}">Next</a>
+      </p>
+    {% else %}
+      <p class="next disabled">
+        <span>Next</span>
+      </p>
+    {% endif %}
+  
+  </div>
