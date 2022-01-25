@@ -4,7 +4,7 @@ permalink : /list
 layout : pages
 ---
 
-{ % for post in paginator.posts %}
+{% for post in paginator.posts %}
 <article class="post post-1">
     <header class="entry-header">
     <h1 class="entry-title">
@@ -19,18 +19,18 @@ layout : pages
     </div>
     </header>
 </article>
-{ % endfor %}
+{% endfor %}
 
 <div class="entry-meta">
-  { % if paginator.previous_page %}
+  {% if paginator.previous_page %}
       <span class="post-category"><a href="{{ paginator.previous_page_path }}">Previous</a></span>
-  { % else %}
+  {% else %}
       <!-- <span class="previous">Previous</span> -->
-  { % endif %}
+  {% endif %}
       <span class="post-category">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  { % if paginator.next_page %}
+  {% if paginator.next_page %}
       <span class="comments-link"><a href="{{ paginator.next_page_path }}">Next</a></span>
-  { % else %}
+  {% else %}
       <!-- <span class="comments-link ">Next</span> -->
-  { % endif %}
+  {% endif %}
   </div>
