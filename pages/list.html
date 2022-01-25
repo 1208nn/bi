@@ -4,55 +4,33 @@ permalink : /list
 layout : pages
 ---
 
-<!-- 遍历分页后的文章 -->
-{% for post in paginator.posts %}
-<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-<p class="author">
-  <span class="date">{{ post.date }}</span>
-</p>
-<div class="content">
-  {{ post.content }}
-</div>
-{% endfor %}
+{ % for post in paginator.posts %}
+<article class="post post-1">
+    <header class="entry-header">
+    <h1 class="entry-title">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </h1>
+    <div class="entry-meta">
+        <span class="post-category"><a href="{{ post.url }}">{{ post.categories }}</a></span>
+        <span class="post-category"><a href="{{ post.url }}">{{ post.tag }}</a></span>
 
-<!-- 分页链接 -->
-<div class="pagination">
-  {% if paginator.previous_page %}
-  <a href="/-page{{ paginator.previous_page }}" class="previous">Previous</a>
-  {% else %}
-  <span class="previous">Previous</span>
-  {% endif %}
-  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-  <a href="/-page{{ paginator.next_page }}" class="next">Next</a>
-  {% else %}
-  <span class="next ">Next</span>
-  {% endif %}
-</div>
+        <span class="post-date"><a href="{{ post.url }}"><time class="entry-date" datetime="{{ post.date }}">{{ post.date | date: "%B %d,%Y" }}</time></a></span>
+        <span class="comments-link"><a href="{{ post.url }}">HelloLux</a></span>
+    </div>
+    </header>
+</article>
+{ % endfor %}
 
-
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-  {% else %}
-  <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-  {% if page == paginator.page %}
-  <em>{{ page }}</em>
-  {% elsif page == 1 %}
-  <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-  {% else %}
-  <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-  {% endif %}
-  {% endfor %}
-
-  {% if paginator.next_page %}
-  <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-  {% else %}
-  <span>Next &raquo;</span>
-  {% endif %}
-</div>
-{% endif %}
+<div class="entry-meta">
+  { % if paginator.previous_page %}
+      <span class="post-category"><a href="{{ paginator.previous_page_path }}">Previous</a></span>
+  { % else %}
+      <!-- <span class="previous">Previous</span> -->
+  { % endif %}
+      <span class="post-category">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  { % if paginator.next_page %}
+      <span class="comments-link"><a href="{{ paginator.next_page_path }}">Next</a></span>
+  { % else %}
+      <!-- <span class="comments-link ">Next</span> -->
+  { % endif %}
+  </div>
