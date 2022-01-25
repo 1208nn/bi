@@ -22,11 +22,11 @@ layout : pages
   <span class="pagination-box">
     {% if paginator.previous_page %}
     {% if paginator.previous_page == 1 %}
-    <a href="{{ site.baseurl }}/home" class="previous">
+    <a href="{{ site.baseurl }}/list" class="previous">
       <i class="icon-chevron-left"></i>
     </a>
     {% else %}
-    <a href="{{ site.baseurl }}/home/page{{ paginator.previous_page }}" class="previous">
+    <a href="{{ site.baseurl }}/list/page-{{ paginator.previous_page }}" class="previous">
       <i class="icon-chevron-left"></i>
     </a>
     {% endif %}
@@ -36,16 +36,16 @@ layout : pages
     </span>
     {% endif %}
 
-    <a href="{{ site.baseurl }}/home" class="number {% unless paginator.previous_page %}is-active{% endunless %}">1</a>
+    <a href="{{ site.baseurl }}/list" class="number {% unless paginator.previous_page %}is-active{% endunless %}">1</a>
 
     {% if show_prev_more == true %}
     {% if new_prev_page == 1 %}
-    <a href="{{ site.baseurl }}/home" class="number prev-page">
+    <a href="{{ site.baseurl }}/list" class="number prev-page">
       <span>...</span>
       <i class="icon-chevrons-left"></i>
     </a>
     {% else %}
-    <a href="{{ site.baseurl }}/home/page{{ new_prev_page }}" class="number prev-page">
+    <a href="{{ site.baseurl }}/list/page-{{ new_prev_page }}" class="number prev-page">
       <span>...</span>
       <i class="icon-chevrons-left"></i>
     </a>
@@ -53,12 +53,12 @@ layout : pages
     {% endif %}
 
     {% for n in pagers %}
-    <a href="{{ site.baseurl }}/home/page{{ n }}" class="number {% if page.url contains n %}is-active{% endif %}">{{ n
+    <a href="{{ site.baseurl }}/list/page-{{ n }}" class="number {% if page.url contains n %}is-active{% endif %}">{{ n
       }}</a>
     {% endfor %}
 
     {% if show_next_more == true %}
-    <a href="{{ site.baseurl }}/home/page{{ new_next_page }}" class="number next-page">
+    <a href="{{ site.baseurl }}/list/page-{{ new_next_page }}" class="number next-page">
       <span>...</span>
       <i class="icon-chevrons-right"></i>
     </a>
@@ -67,12 +67,12 @@ layout : pages
     <span class="mobile-page-number text-tip only-sm">{{ paginator.page }} / {{ paginator.total_pages }}</span>
 
     {% unless total_pages == 1 %}
-    <a href="{{ site.baseurl }}/home/page{{ total_pages }}"
+    <a href="{{ site.baseurl }}/list/page-{{ total_pages }}"
       class="number {% unless paginator.next_page %}is-active{% endunless %}">{{ total_pages }}</a>
     {% endunless %}
 
     {% if paginator.next_page %}
-    <a href="{{ site.baseurl }}/home/page{{ paginator.next_page }}" class="next">
+    <a href="{{ site.baseurl }}/list/page-{{ paginator.next_page }}" class="next">
       <i class="icon-chevron-right"></i>
     </a>
     {% else %}
