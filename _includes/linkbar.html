@@ -1,47 +1,52 @@
-<bar><script src="./js/back.js"></script>
-<style>
-body{
-    padding-bottom: 70px;
-}
-.linkbar{
-    position: fixed;
-    left: 10px;
-    right: 10px;
-    bottom: 6px;
-    height: 64px;
-    background-image: linear-gradient(to bottom right, yellow, orange);
-    z-index: 9997;
-    border-radius: 5px;
-    color: white;
-    box-shadow: 4px 4px 4px 4px gray;
-    padding: 0px;
-}
-.links{
-    background-color: purple;
-    height: 20px;
-    z-index: 9998;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-sitetitle{
-    font-size: 40px;
-}
-sitetitle a{
-    color: white;
-}
-</style>
-<div class="linkbar">
-    <input type="button" value="<" onclick="back_home()" />
-    <sitetitle>
-        <a href="https://insiders.brothers.gq/" >
-            {{ site.title }}
-        </a>
-        |
-    </sitetitle>
-    {{ page.title }}
-    <div class="links">
-        link
+<bar>
+    <script src="./js/back.js"></script>
+    <style>
+        body {
+            padding-bottom: 70px;
+        }
+
+        .linkbar {
+            position: fixed;
+            left: 10px;
+            right: 10px;
+            bottom: 6px;
+            height: 64px;
+            background-image: linear-gradient(to bottom right, yellow, orange);
+            z-index: 9997;
+            border-radius: 5px;
+            color: white;
+            box-shadow: 4px 4px 4px 4px gray;
+            padding: 0px;
+        }
+
+        .links {
+            background-color: purple;
+            height: 20px;
+            z-index: 9998;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        sitetitle {
+            font-size: 40px;
+        }
+
+        sitetitle a {
+            color: white;
+        }
+    </style>
+    <div class="linkbar">
+        <input type="button" value="<" onclick="back_home()" />
+        <sitetitle>
+            <a href="https://insiders.brothers.gq/">
+                {{ site.title }}
+            </a>
+            |
+        </sitetitle>
+        {{ page.title }}
+        <div class="links">
+            link
+        </div>
     </div>
-</div>
-{% include logverify.html %}
+    {% include logverify.html %}
 </bar>
