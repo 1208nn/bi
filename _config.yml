@@ -7,7 +7,7 @@ pwd: 123456
 
 # Pagination
 paginate: 5    #在生成的站点中每页展示博客数目的最大值
-paginate_path: "/list/page:num"    #定分页页面的目标路径
+paginate_path: "/page:num"    #定分页页面的目标路径
 
 
 defaults:
